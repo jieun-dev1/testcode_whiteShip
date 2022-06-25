@@ -94,5 +94,24 @@ class StudyServiceTest {
 
     }
 
+    @Test
+    @DisplayName("Stubbing 연습 문제")
+    void practice(@Mock MemberService memberService, @Mock StudyRepository studyRepository) {
+        StudyService studyService = new StudyService(memberService, studyRepository);
+        assertNotNull(studyService);
+
+        Member member = new Member();
+        member.setId(1L);
+        member.setEmail("j@gmail1.com");
+
+        Study study = new Study(10, "테스트");
+
+        when(memberService.findById(1L)).thenReturn(Optional.of(member));
+        when(studyRepository.save(study)).thenReturn(study);
+
+        studyService.createNewStudy(1L, study);
+        assertEquals(member, study.getOwner());
+
+    }
 
 }
