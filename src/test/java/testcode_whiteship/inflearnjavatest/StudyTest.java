@@ -8,6 +8,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import testcode_whiteship.inflearnjavatest.domain.Study;
+import testcode_whiteship.inflearnjavatest.study.StudyStatus;
 
 class StudyTest {
 
